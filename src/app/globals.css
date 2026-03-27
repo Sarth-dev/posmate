@@ -1,0 +1,24 @@
+@import "tailwindcss";
+@media print {
+  /* Hide the entire Dashboard */
+  .print\:hidden {
+    display: none !important;
+  }
+
+  /* Force the Receipt to show */
+  .print\:block {
+    display: block !important;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Ensure no background colors or shadows interfere */
+  body {
+    background: white !important;
+    color: black !important;
+  }
+}
