@@ -1,24 +1,26 @@
 @import "tailwindcss";
 @media print {
-  /* Hide the entire Dashboard */
-  .print\:hidden {
-    display: none !important;
-  }
-
-  /* Force the Receipt to show */
-  .print\:block {
-    display: block !important;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
+  /* Force the receipt to be visible and remove browser headers/footers */
+  @page {
     margin: 0;
-    padding: 0;
+    size: auto;
   }
 
-  /* Ensure no background colors or shadows interfere */
-  body {
-    background: white !important;
-    color: black !important;
+  body * {
+    visibility: hidden; /* Hide everything else */
+  }
+
+  #receipt-print-area, #receipt-print-area * {
+    visibility: visible; /* Only show the receipt */
+  }
+
+  #receipt-print-area {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: auto;
+    overflow: visible !important;
+    display: block !important;
   }
 }
